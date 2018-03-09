@@ -21,7 +21,7 @@ set CHOCO_LABEL=Installing
 GOTO :Packages
 
 :SetUpdate
-set CHOCO_COMMAND=update
+set CHOCO_COMMAND=upgrade
 set CHOCO_LABEL=Updating
 GOTO :Packages
 
