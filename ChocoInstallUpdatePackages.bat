@@ -42,7 +42,9 @@ REM Web browsers
 set Browsers=googlechrome firefox opera
 
 REM General tools used on my systems
-set SystemUtilities=procmon bginfo procexp slack f.lux ditto rainmeter sysmon toggl 7zip winrar vlc virtuawin paint.net gpg4win classic-shell ccleaner sysinternals curl wget greenshot freefilesync displayfusion wizmouse
+set SystemUtilities=procmon procexp f.lux ditto rainmeter sysmon 7zip winrar vlc paint.net gpg4win classic-shell ccleaner sysinternals curl wget greenshot freefilesync wizmouse
+
+set WorkSystemUtilities=bginfo slack toggl displayfusion virtuawin
 
 REM SSH/File Transfer and Passwords
 set SSH_Password_TransferTools=putty superputty openssh filezilla keepass lastpass winscp
@@ -55,7 +57,25 @@ set VMWareTools=vmware-horizon-client vmwarevsphereclient
 set Games=steam origin goggalaxy uplay
 
 
-set Items=ChocolateyTools DevelopmentRuntimes DevelopmentTools Fonts Browsers SystemUtilities SSH_Password_TransferTools RemoteTools VMWareTools Games
+:PackageChoice
+set /P Machine=Is this for Home or Work[H/W]? (X to exit)
+if /I "%Machine%" EQU "H" goto :SetHome
+if /I "%Machine%" EQU "W" goto :SetWork
+if /I "%Machine%" EQU "X" goto :End
+
+goto :PackageChoice
+
+:SetHome
+REM for Home
+set Items=ChocolateyTools DevelopmentRuntimes DevelopmentTools Fonts Browsers SystemUtilities SSH_Password_TransferTools Games
+
+GOTO :RunIt
+
+:SetWork
+REM for work
+set Items=ChocolateyTools DevelopmentRuntimes DevelopmentTools Fonts Browsers SystemUtilities WorkSystemUtilities SSH_Password_TransferTools RemoteTools VMWareTools
+
+:RunIt
 (for %%a in (%Items%) do (
    echo %CHOCO_LABEL% items from %%a
    (for %%b in (!%%a!) do (
