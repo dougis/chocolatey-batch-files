@@ -33,7 +33,8 @@ REM Library files etc (runtimes and so on)
 set DevelopmentRuntimes=jre8 jdk8 jdk9 vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vcredist2015 vcredist140 vcredist2017 dotnet4.7.1 directx
 
 REM Items used for software development
-set DevelopmentTools=ctags visualstudiocode crystalreports2010runtime sublimetext3 notepadplusplus sqlite winmerge git tortoisesvn gitextensions postman autoit scite4autoit3 androidstudio meld gitkraken sqlitebrowser vagrant virtualbox vagrant-manager docker-toolbox hosts.editor
+set DevelopmentTools=ctags visualstudiocode sublimetext3 notepadplusplus sqlite winmerge git gitextensions gitkraken sqlitebrowser vagrant virtualbox vagrant-manager docker-toolbox hosts.editor
+set Work_DevelopmentTools=crystalreports2010runtime tortoisesvn gitextensions postman autoit scite4autoit3 androidstudio meld
 
 REM Font packages to install
 set Fonts=inconsolata sourcecodepro droidsansmono oxygenmono
@@ -47,7 +48,9 @@ set SystemUtilities=procmon procexp f.lux ditto rainmeter sysmon 7zip winrar vlc
 set WorkSystemUtilities=bginfo slack toggl displayfusion virtuawin
 
 REM SSH/File Transfer and Passwords
-set SSH_Password_TransferTools=putty superputty openssh filezilla keepass lastpass winscp
+set SSH_Password_TransferTools=putty superputty openssh filezilla lastpass
+
+set Work_SSH_Password_TransferTools=keepass winscp
 
 set RemoteTools=radmin-viewer rdcman
 
@@ -73,7 +76,7 @@ GOTO :RunIt
 
 :SetWork
 REM for work
-set Items=ChocolateyTools DevelopmentRuntimes DevelopmentTools Fonts Browsers SystemUtilities WorkSystemUtilities SSH_Password_TransferTools RemoteTools VMWareTools
+set Items=ChocolateyTools DevelopmentRuntimes DevelopmentTools Work_DevelopmentTools Fonts Browsers SystemUtilities WorkSystemUtilities SSH_Password_TransferTools Work_SSH_Password_TransferTools RemoteTools VMWareTools
 
 :RunIt
 (for %%a in (%Items%) do (
