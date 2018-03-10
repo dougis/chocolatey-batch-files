@@ -33,8 +33,8 @@ REM Library files etc (runtimes and so on)
 set DevelopmentRuntimes=jre8 jdk8 jdk9 vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vcredist2015 vcredist140 vcredist2017 dotnet4.7.1 directx
 
 REM Items used for software development
-set DevelopmentTools=ctags visualstudiocode sublimetext3 notepadplusplus sqlite winmerge git gitextensions gitkraken sqlitebrowser vagrant virtualbox vagrant-manager docker-toolbox hosts.editor
-set Work_DevelopmentTools=crystalreports2010runtime tortoisesvn gitextensions postman autoit scite4autoit3 androidstudio meld
+set DevelopmentTools=ctags visualstudiocode sublimetext3 notepadplusplus sqlite winmerge git gitextensions gitkraken sqlitebrowser vagrant virtualbox vagrant-manager docker-toolbox hosts.editor postman
+set Work_DevelopmentTools=crystalreports2010runtime tortoisesvn autoit scite4autoit3 androidstudio meld
 
 REM Font packages to install
 set Fonts=inconsolata sourcecodepro droidsansmono oxygenmono
@@ -43,7 +43,7 @@ REM Web browsers
 set Browsers=googlechrome firefox opera
 
 REM General tools used on my systems
-set SystemUtilities=procmon procexp f.lux ditto rainmeter sysmon 7zip winrar vlc paint.net gpg4win classic-shell ccleaner sysinternals curl wget greenshot freefilesync wizmouse
+set SystemUtilities=procmon procexp f.lux ditto rainmeter sysmon 7zip winrar vlc paint.net gpg4win classic-shell ccleaner sysinternals curl wget greenshot freefilesync wizmouse nitroreader.install
 
 set WorkSystemUtilities=bginfo slack toggl displayfusion virtuawin
 
@@ -58,6 +58,7 @@ REM Virtualization Tools
 set VMWareTools=vmware-horizon-client vmwarevsphereclient
 
 set Games=steam origin goggalaxy uplay
+set SharingTools=dropbox
 
 
 :PackageChoice
@@ -70,7 +71,7 @@ goto :PackageChoice
 
 :SetHome
 REM for Home
-set Items=ChocolateyTools DevelopmentRuntimes DevelopmentTools Fonts Browsers SystemUtilities SSH_Password_TransferTools Games
+set Items=ChocolateyTools DevelopmentRuntimes DevelopmentTools Fonts Browsers SystemUtilities SSH_Password_TransferTools Games SharingTools
 
 GOTO :RunIt
 
