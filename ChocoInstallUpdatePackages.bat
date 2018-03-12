@@ -88,7 +88,18 @@ GOTO :RunIt
 
 :SetWork
 REM for work
-set Items=ChocolateyTools DevelopmentRuntimes DevelopmentTools Work_DevelopmentTools Fonts Browsers SystemUtilities WorkSystemUtilities SSH_Password_TransferTools Work_SSH_Password_TransferTools RemoteTools VMWareTools
+set Items=ChocolateyTools DevelopmentRuntimes DevelopmentTools Work_DevelopmentTools Fonts Browsers SystemUtilities WorkSystemUtilities SSH_Password_TransferTools Work_SSH_Password_TransferTools RemoteTools
+
+:ChooseVMWare
+set /P NeedVMWare=Do you need VMWare tools[Y/N]? (X to exit)
+if /I "%NeedVMWare%" EQU "Y" goto :AddVMWare
+if /I "%NeedVMWare%" EQU "N" goto :RunIt
+if /I "%NeedVMWare%" EQU "X" goto :End
+
+goto :ChooseVMWare
+
+:AddVMWare
+set Items=%Items% %VMWareTools%
 
 :RunIt
 
