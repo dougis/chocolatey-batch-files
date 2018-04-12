@@ -53,7 +53,7 @@ set SSH_Password_TransferTools=putty superputty openssh filezilla lastpass
 
 set Work_SSH_Password_TransferTools=keepass winscp
 
-set RemoteTools=radmin-viewer rdcman
+set RemoteTools=radmin-viewer rdmfree
 
 REM Virtualization Tools
 set VMWareTools=vmware-horizon-client vmwarevsphereclient
