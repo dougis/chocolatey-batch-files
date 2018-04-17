@@ -9,7 +9,10 @@ REM Check to see if we are an admin user
 
 GOTO end
 :getPrivileges
-ECHO "You must run this file with administrative privileges"
-ECHO "Please try again running as Administrator"
+    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+    echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
+
+    "%temp%\getadmin.vbs"
+    exit /B
 PAUSE
 :end
