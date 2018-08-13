@@ -44,7 +44,7 @@ REM Web browsers
 set Browsers=googlechrome firefox opera
 
 REM General tools used on my systems
-set SystemUtilities=procmon procexp f.lux ditto rainmeter sysmon 7zip winrar vlc paint.net gpg4win classic-shell ccleaner sysinternals curl wget greenshot freefilesync wizmouse nitroreader.install windirstat treesizefree
+set SystemUtilities=procmon procexp f.lux ditto rainmeter sysmon 7zip winrar vlc paint.net gpg4win classic-shell sysinternals curl wget greenshot freefilesync wizmouse nitroreader.install windirstat treesizefree
 
 set WorkSystemUtilities=bginfo slack toggl virtuawin
 
