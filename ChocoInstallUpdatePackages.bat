@@ -44,7 +44,8 @@ REM Web browsers
 set Browsers=googlechrome firefox opera
 
 REM General tools used on my systems
-set SystemUtilities=procmon procexp f.lux ditto rainmeter sysmon 7zip winrar vlc paint.net gpg4win classic-shell sysinternals curl wget greenshot freefilesync wizmouse nitroreader.install windirstat treesizefree
+set SystemUtilities=procmon procexp f.lux ditto rainmeter sysmon 7zip winrar paint.net gpg4win classic-shell ccleaner sysinternals curl wget greenshot freefilesync wizmouse nitroreader.install
+set AudioVideoTools=vlc spotify audacity-lame audacity
 
 set WorkSystemUtilities=bginfo slack toggl virtuawin
 
@@ -82,13 +83,13 @@ goto :PackageChoice
 
 :SetHome
 REM for Home
-set Items=ChocolateyTools DevelopmentRuntimes DevelopmentTools Fonts Browsers SystemUtilities SSH_Password_TransferTools Games SharingTools
+set Items=ChocolateyTools DevelopmentRuntimes DevelopmentTools Fonts Browsers SystemUtilities AudioVideoTools SSH_Password_TransferTools Games SharingTools
 
 GOTO :RunIt
 
 :SetWork
 REM for work
-set Items=ChocolateyTools DevelopmentRuntimes DevelopmentTools Work_DevelopmentTools Fonts Browsers SystemUtilities WorkSystemUtilities SSH_Password_TransferTools Work_SSH_Password_TransferTools RemoteTools
+set Items=ChocolateyTools DevelopmentRuntimes DevelopmentTools Work_DevelopmentTools Fonts Browsers SystemUtilities AudioVideoTools WorkSystemUtilities SSH_Password_TransferTools Work_SSH_Password_TransferTools RemoteTools VMWareTools
 
 :ChooseVMWare
 set /P NeedVMWare=Do you need VMWare tools[Y/N]? (X to exit)
