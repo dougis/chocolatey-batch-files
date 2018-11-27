@@ -57,7 +57,7 @@ set Work_SSH_Password_TransferTools=keepass winscp
 set RemoteTools=radmin-viewer rdmfree
 
 REM Virtualization Tools
-set VMWareTools=vmware-horizon-client vmwarevsphereclient
+set VMWareTools=vmware-horizon-client
 
 set Games=steam origin goggalaxy uplay
 set SharingTools=dropbox
