@@ -31,10 +31,11 @@ REM chocolatey tools
 set ChocolateyTools=chocolatey-core.extension chocolateygui
 
 REM Library files etc (runtimes and so on)
-set DevelopmentRuntimes=jre8 jdk8 jdk9 vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vcredist2015 vcredist140 vcredist2017 dotnet4.7.1 directx
+set DevelopmentRuntimes=jre8 jdk8 vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vcredist2015 vcredist140 vcredist2017 dotnet4.7.1 directx
 
 REM Items used for software development
-set DevelopmentTools=ctags visualstudiocode sublimetext3 notepadplusplus sqlite winmerge git gitextensions gitkraken sqlitebrowser vagrant virtualbox --params ^"/NoDesktopShortcut /NoExtensionPack^" vagrant-manager docker-toolbox hosts.editor postman meld nodejs-lts yarn
+set DevelopmentTools=ctags visualstudiocode sublimetext3 notepadplusplus sqlite winmerge git gitextensions gitkraken sqlitebrowser vagrant vagrant-manager docker-toolbox hosts.editor postman meld nodejs-lts yarn
+
 set Work_DevelopmentTools=crystalreports2010runtime tortoisesvn autoit scite4autoit3 androidstudio beyondcompare
 
 REM Font packages to install
@@ -65,13 +66,21 @@ set SharingTools=dropbox
 :ChooseMonitors
 set /P DualMonitors=Do you have more than 1 monitor[Y/N]? (X to exit)
 if /I "%DualMonitors%" EQU "Y" goto :HaveMultipleMonitors
-if /I "%DualMonitors%" EQU "N" goto :PackageChoice
+if /I "%DualMonitors%" EQU "N" goto :ChooseVirtualBox
 if /I "%DualMonitors%" EQU "X" goto :End
 
 goto :ChooseMonitors
 
 :HaveMultipleMonitors
 set SystemUtilities=%SystemUtilities% displayfusion
+
+:ChooseVirtualBox
+set /P InstallVirtualBox=Do you want to install Virtual Box[Y/N]? (X to exit)
+if /I "%InstallVirtualBox%" EQU "Y" goto :PackageChoice
+if /I "%InstallVirtualBox%" EQU "N" goto :PackageChoice
+if /I "%InstallVirtualBox%" EQU "X" goto :End
+
+goto :ChooseVirtualBox
 
 :PackageChoice
 set /P Machine=Is this for Home or Work[H/W]? (X to exit)
@@ -111,6 +120,9 @@ set Items=%Items% %VMWareTools%
         REM echo would run choco %CHOCO_COMMAND% %%b -y
     ))
 ))
+if /I "%InstallVirtualBox%" EQU "N" goto :Pause
+choco %CHOCO_COMMAND% virtualbox --params ^"/NoDesktopShortcut /NoExtensionPack^" -y
+
 GOTO Pause
 
 :MustBeAdmin
