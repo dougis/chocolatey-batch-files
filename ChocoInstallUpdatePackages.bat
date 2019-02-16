@@ -44,7 +44,7 @@ REM Web browsers
 set Browsers=googlechrome firefox opera
 
 REM General tools used on my systems
-set SystemUtilities=procmon procexp f.lux ditto rainmeter sysmon 7zip winrar paint.net gpg4win classic-shell ccleaner sysinternals curl wget greenshot freefilesync wizmouse nitroreader.install
+set SystemUtilities=procmon procexp f.lux ditto rainmeter sysmon 7zip winrar vlc paint.net gpg4win classic-shell sysinternals curl wget greenshot freefilesync wizmouse nitroreader.install windirstat treesizefree
 set AudioVideoTools=vlc spotify audacity-lame audacity
 
 set WorkSystemUtilities=bginfo slack toggl virtuawin
@@ -57,7 +57,7 @@ set Work_SSH_Password_TransferTools=keepass winscp
 set RemoteTools=radmin-viewer rdmfree
 
 REM Virtualization Tools
-set VMWareTools=vmware-horizon-client vmwarevsphereclient
+set VMWareTools=vmware-horizon-client
 
 set Games=steam origin goggalaxy uplay
 set SharingTools=dropbox
@@ -65,13 +65,21 @@ set SharingTools=dropbox
 :ChooseMonitors
 set /P DualMonitors=Do you have more than 1 monitor[Y/N]? (X to exit)
 if /I "%DualMonitors%" EQU "Y" goto :HaveMultipleMonitors
-if /I "%DualMonitors%" EQU "N" goto :PackageChoice
+if /I "%DualMonitors%" EQU "N" goto :ChooseVirtualBox
 if /I "%DualMonitors%" EQU "X" goto :End
 
 goto :ChooseMonitors
 
 :HaveMultipleMonitors
 set SystemUtilities=%SystemUtilities% displayfusion
+
+:ChooseVirtualBox
+set /P InstallVirtualBox=Do you want to install Virtual Box[Y/N]? (X to exit)
+if /I "%InstallVirtualBox%" EQU "Y" goto :PackageChoice
+if /I "%InstallVirtualBox%" EQU "N" goto :PackageChoice
+if /I "%InstallVirtualBox%" EQU "X" goto :End
+
+goto :ChooseVirtualBox
 
 :PackageChoice
 set /P Machine=Is this for Home or Work[H/W]? (X to exit)
@@ -111,6 +119,9 @@ set Items=%Items% %VMWareTools%
         REM echo would run choco %CHOCO_COMMAND% %%b -y
     ))
 ))
+if /I "%InstallVirtualBox%" EQU "N" goto :Pause
+choco %CHOCO_COMMAND% virtualbox --params ^"/NoDesktopShortcut /NoExtensionPack^" -y
+
 GOTO Pause
 
 :MustBeAdmin
