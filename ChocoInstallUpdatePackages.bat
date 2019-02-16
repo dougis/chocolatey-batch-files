@@ -31,11 +31,10 @@ REM chocolatey tools
 set ChocolateyTools=chocolatey-core.extension chocolateygui
 
 REM Library files etc (runtimes and so on)
-set DevelopmentRuntimes=jre8 jdk8 vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vcredist2015 vcredist140 vcredist2017 dotnet4.7.1 directx
+set DevelopmentRuntimes=jre8 jdk8 jdk9 vcredist2005 vcredist2008 vcredist2010 vcredist2012 vcredist2013 vcredist2015 vcredist140 vcredist2017 dotnet4.7.1 directx nodejs-lts yarn
 
 REM Items used for software development
-set DevelopmentTools=ctags visualstudiocode sublimetext3 notepadplusplus sqlite winmerge git gitextensions gitkraken sqlitebrowser vagrant vagrant-manager docker-toolbox hosts.editor postman meld nodejs-lts yarn
-
+set DevelopmentTools=ctags visualstudiocode sublimetext3 notepadplusplus sqlite winmerge git gitextensions gitkraken sqlitebrowser vagrant virtualbox hosts.editor postman meld php composer maven
 set Work_DevelopmentTools=crystalreports2010runtime tortoisesvn autoit scite4autoit3 androidstudio beyondcompare
 
 REM Font packages to install
